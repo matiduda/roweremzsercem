@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ScrollReveal from "../components/ScrollReveal.tsx";
+---
+
+<Layout>
+  <Header />
+  <main>
+    <section class="max-w-4xl mx-auto px-4 pb-10">
+      <div class="prose prose-lg max-w-none">
+        <ScrollReveal client:load delay={0.1}>
+          <h2>O nas</h2>
+          <p class="text-xl text-gray-600">
+            Rowerem z Sercem to oddolna inicjatywa, w ramach której organizujemy
+            charytatywny rajd rowerowy połączony z transmisją na żywo.
+          </p>
+          <p class="text-xl text-gray-600">
+            Nie stoją za nami żadne organizacje ani duże fundacje – jesteśmy
+            grupą młodych ludzi w wieku 27 lat, których połączyła wspólna pasja.
+          </p>
+        </ScrollReveal>
+      </div>
+
+      <div class="prose prose-lg max-w-none">
+        <ScrollReveal client:load delay={0.2}>
+          <ul>
+            <li>
+              Transmitujemy przebieg całej trasy na żywo na platformach <strong
+                >Twitch, Kick, YouTube</strong
+              >
+            </li>
+            <li>
+              Pokazujemy <strong>mapę</strong> z naszą dokładną lokalizacją i aktualnym
+              przebiegiem trasy
+            </li>
+            <li>Prowadzimy interakcję z widzami za pomocą czatu</li>
+            <li>
+              Umożliwiamy wpłaty środków na <strong>zbiórkę charytatywną</strong
+              > w trakcie transmisji
+            </li>
+          </ul>
+        </ScrollReveal>
+
+        <ScrollReveal client:load delay={0.6}>
+          <h2>2025</h2>
+          <p>
+            W maju 2025 roku zorganizowaliśmy pierwszą edycję rajdu, w ramach
+            której pięcioosobową grupą pokonaliśmy w 3 dni trasę <strong
+              >z Warszawy do Gdańska</strong
+            >, łącznie ok. 350 km.
+          </p>
+          <p>
+            Dzięki ogromnemu zaangażowaniu widzów udało nam się zebrać łącznie
+            kwotę <strong>1 773,53 zł</strong>, którą w całości przekazaliśmy
+            <a
+              href="https://www.facebook.com/Przytulisko.na.Wisniowej/?locale=pl_PL"
+              >Sandomierskiemu Stowarzyszeniu Przyjaciół Zwierząt</a
+            > - organizacji oferującej pomoc i schronienie dla bezdomnych zwierząt
+            z regionu Sandomierza. Wsparliśmy tym samym naszą lokalną społeczność.
+          </p>
+          <p>
+            W realizacji tego celu pomogły nam media i instytucje z rodzinnego
+            miasta. Otrzymaliśmy patronat honorowy Burmistrza Sandomierza, a o
+            naszym przedsięwzięciu napisały także lokalne media:
+          </p>
+          <ul>
+            <li>
+              <a
+                href="https://sandomierz.eu/15641/charytatywny-rajd-rowerowy-rowerem-z-sercem-warszawa-gdansk-2025.html?fbclid=IwY2xjawNm1ztleHRuA2FlbQIxMQABHrkYsGyQtXIDpQhy5Kyj9wEORLrGkd0v52pNF5QuM9015f-mOtSKgfSmOh_Q_aem_K5BGyOtKGPESgrBGs4aZXg"
+                >Charytatywny rajd rowerowy "Rowerem z sercem – Warszawa-Gdańsk
+                2025"</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://sandomierz.cozadzien.pl/sandomierz/rowerem-z-sercem-mlodziez-jedzie-z-warszawy-do-gdanska-by-pomagac-innym/77835"
+                >Rowerem z sercem – młodzież jedzie z Warszawy do Gdańska, by
+                pomagać innym</a
+              >
+            </li>
+          </ul>
+          <p>
+            To doświadczenie utwierdziło nas w przekonaniu, że warto kontynuować
+            projekt i rozwijać go na jeszcze większą skalę
+          </p>
+        </ScrollReveal>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

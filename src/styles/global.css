@@ -1,2 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@theme {
+    --color-rzs: oklch(0.5463 0.212 18.79);
+    --color-rzs-hover: oklch(0.623 0.2115 19.86);
+    --color-twitch: oklch(0.4676 0.1544 296.01);
+    --color-twitch-hover: oklch(0.6 0.1544 296.01);
+}

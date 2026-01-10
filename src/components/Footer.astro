@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import Logo from "../assets/logo-gray.png";
+import { Image } from "astro:assets";
 ---
 
 <footer
@@ -9,73 +11,71 @@ import { Icon } from "astro-icon/components";
   <div class="max-w-6xl mx-auto">
     <div class="grid md:grid-cols-3 gap-8 mb-8">
       <div>
-        <h3 class="text-lg font-semibold text-gray-900 mb-4">Astro Base</h3>
-        <p class="text-gray-600">
-          A basic minimal starter template built for Astro with React, Framer
-          Motion and Tailwind.
-        </p>
+        <a href="/">
+          <Image src={Logo} class="h-12 w-auto mb-4" alt="Rowerem z Sercem" />
+        </a>
       </div>
       <div>
         <h3 class="text-lg font-semibold text-gray-900 mb-4">Links</h3>
         <ul class="space-y-2">
           <li>
             <a
-              href="/features"
+              href="/info"
               class="text-gray-600 hover:text-gray-900 transition-colors"
-              >Features</a
+              >Informacje</a
             >
           </li>
           <li>
             <a
-              href="/about"
+              href="/kontakt"
               class="text-gray-600 hover:text-gray-900 transition-colors"
-              >About</a
-            >
-          </li>
-          <li>
-            <a
-              href="/contact"
-              class="text-gray-600 hover:text-gray-900 transition-colors"
-              >Contact</a
+              >Kontakt</a
             >
           </li>
         </ul>
       </div>
       <div>
-        <h3 class="text-lg font-semibold text-gray-900 mb-4">Connect</h3>
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Znajdź nas</h3>
         <ul class="space-y-2">
           <li>
             <a
-              href="https://github.com"
+              href="https://www.instagram.com/roweremzsercem/"
               class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
             >
-              <Icon name="tabler:brand-github" class="w-5 h-5" />
-              GitHub</a
+              <Icon name="tabler:brand-instagram" class="w-5 h-5" />
+              Instagram</a
             >
           </li>
           <li>
             <a
-              href="https://twitter.com"
+              href="https://www.tiktok.com/@rowerem_z_sercem"
               class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
             >
-              <Icon name="tabler:brand-twitter" class="w-5 h-5" />
-              Twitter</a
+              <Icon name="tabler:brand-tiktok" class="w-5 h-5" />
+              TikTok</a
             >
           </li>
           <li>
             <a
-              href="/contact"
+              href="https://www.youtube.com/@roweremzsercem"
               class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
             >
-              <Icon name="tabler:mail" class="w-5 h-5" />
-              Email</a
+              <Icon name="tabler:brand-youtube" class="w-5 h-5" />
+              YouTube Shorts</a
             >
           </li>
         </ul>
       </div>
     </div>
-    <div class="pt-8 border-t border-gray-200 text-center text-gray-600">
-      <p>&copy; 2024 Astro Base. All rights reserved.</p>
+    <div
+      class="pt-8 border-t border-gray-200 text-center text-gray-600 text-base/loose"
+    >
+      <p>
+        &copy; 2026 Rowerem z Sercem<br /><a
+          href="https://tancz.my"
+          class="text-gray-400 hover:underline transition-all">tancz.my</a
+        >
+      </p>
     </div>
   </div>
 </footer>

@@ -202,8 +202,8 @@ See `src/pages/example.mdx` for a complete example.
 
 - **/** - Homepage with hero, features, and CTA sections
 - **/features** - Features showcase page
-- **/about** - About page
-- **/contact** - Contact form page
+- **/info** - About page
+- **/kontakt** - Contact form page
 - **/example** - MDX example page demonstrating markdown features
 
 ## 🔧 Configuration
@@ -292,3 +292,30 @@ Built with:
 ---
 
 **Ready to build something amazing?** [Download this template](https://github.com/jonnysmillie/astro-base) and start creating!
+
+
+### Features to add
+
+- [ ] Basic header and site navigation
+- [ ] Add to calendar button https://addcal.co/
+- [x] Add route animation to SVG map (+ animated km)
+- [x] Dac cytat z Burmistrza na stronie glownej
+- [ ] "Nowy stream to: - 50km dłuższa trasa, - Nowe osoby, - Goście specjalni, - Nagrody dla widzów
+- [ ] Licznik z https://marriage.madethemes.com/ (i ogólnie wygląd strony można podgfapic)
+
+### Design inspo:
+
+- https://convencion-hyundai.plastic.design/?utm_source=awwwards&utm_medium=web&utm_campaign=hyundai_convention&utm_content=awwwards_summit (intro animation)
+- https://www.summergamefest.com/ (date reveal + calendar event)
+- https://workleads.nl/ (video as header)
+
+```
+Main page titles:
+'Kręcimy kilometry' ...
+'Wymieniamy dętki' ...
+'Prowadzimy stream IRL' ...
+... dla zwierzaków z Sandomierza
+```
+
+Sources:
+- SVG Poland Map: https://www.amcharts.com/svg-maps/?map=poland

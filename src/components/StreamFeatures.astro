@@ -1,0 +1,70 @@
+---
+import { Icon } from "astro-icon/components";
+import ScrollReveal from "./ScrollReveal";
+import { icons } from "@iconify-json/tabler/index.js";
+
+let initialDelay = 0.6;
+
+const newStreamFeaturesInfo = [
+    {
+        title: "Trzy dni streama",
+        content:
+            "Trzy dni nieprzerwanej transmisji — od porannego startu do wieczornego postoju. Każdy kilometr, każda emocja i każdy moment dostępne na żywo.",
+        icon: "tabler:clock-hour-9",
+        delay: (initialDelay += 0.1),
+    },
+    {
+        title: "Jeszcze dalej",
+        content:
+            "W kolejnej edycji podnosimy sobie poprzeczkę — trasa dłuższa o ok. 50 kilometrów. Więcej wysiłku, więcej historii i jeszcze większy cel.",
+        icon: "tabler:bike",
+        delay: (initialDelay += 0.1),
+    },
+    {
+        title: "Nowy skład",
+        content:
+            "Rozszerzamy skład i zapraszamy nowe osoby do wspólnej jazdy. Więcej perspektyw, więcej energii i jeszcze silniejszy zespół.",
+        icon: "tabler:users-group",
+        delay: (initialDelay += 0.1),
+    },
+    {
+        title: "Goście specjalni",
+        content:
+            "Podczas transmisji planujemy rozmowy z zaproszonymi gośćmi. To dodatkowe historie, doświadczenia i inspirujące rozmowy na żywo.",
+        icon: "tabler:phone-call",
+        delay: (initialDelay += 0.1),
+    },
+    {
+        title: "Nowa jakość",
+        content:
+            "Nowa strona, nowe wizualizacje i usprawniona transmisja. Stawiamy na stabilność, czytelność i jeszcze lepsze wrażenia dla widzów.",
+        icon: "tabler:sparkles",
+        delay: (initialDelay += 0.1),
+    },
+    {
+        title: "Więcej platform",
+        content:
+            "Rozwijamy obecność w social mediach — Instagram, TikTok i YouTube Shorts. Chcemy docierać do nowych odbiorców i budować większą społeczność.",
+        icon: "tabler:device-mobile",
+        delay: (initialDelay += 0.1),
+    },
+];
+---
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pb-6">
+    {
+        newStreamFeaturesInfo.map((info) => (
+            <ScrollReveal client:load delay={info.delay} scale={true}>
+                <div class="p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                        <Icon name={info.icon} class="w-6 h-6 text-gray-900" />
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                        {info.title}
+                    </h3>
+                    <p class="text-gray-600">{info.content}</p>
+                </div>
+            </ScrollReveal>
+        ))
+    }
+</div>

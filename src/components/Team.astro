@@ -1,0 +1,65 @@
+---
+import ScrollReveal from "./ScrollReveal.tsx";
+import { Image } from "astro:assets";
+
+import Mariusz from "../assets/people/mari.jpg";
+import Mati from "../assets/people/mati.jpg";
+import Michu from "../assets/people/michu.jpg";
+
+const participants = [
+  {
+    name: "Mateusz Duda",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel nisi nulla. Donec facilisis leo mi, sit amet lobortis enim venenatis in. Cras varius, tortor a rutrum elementum, diam ipsum congue sem.",
+    image: Mati,
+  },
+  {
+    name: "Mariusz Grabski",
+    description:
+      "Nam gravida fringilla sagittis. Mauris blandit elementum mi vitae facilisis. Vestibulum et bibendum tortor. Praesent ut dui facilisis nulla pulvinar imperdiet. Duis ullamcorper odio a neque semper, non ornare dui cursus",
+    image: Mariusz,
+  },
+  {
+    name: "Michał Wrona",
+    description:
+      "Etiam suscipit facilisis auctor. Morbi nec diam quis nisi volutpat vulputate. Quisque bibendum purus leo, sit amet suscipit mi viverra nec. Integer ut ligula quis lorem blandit ultrices",
+    image: Michu,
+  },
+];
+---
+
+<section id="features" class="max-w-6xl mx-auto pt-12">
+  <ScrollReveal client:load delay={0.2}>
+    <h1 class="text-4xl font-bold text-gray-900 my-4 text-center">
+      Poznaj nową ekipę
+    </h1>
+  </ScrollReveal>
+
+  <ScrollReveal client:load delay={0.3}>
+    <hr class="h-px mt-0 bg-gray-200 border-0 mb-6" />
+  </ScrollReveal>
+
+  <ScrollReveal client:load delay={0.4}>
+    <div class="flex justify-center">
+      <div class="flex flex-col sm:flex-row gap-4">
+        {
+          participants.map((participant, i) => (
+            <ScrollReveal client:load delay={0.2 + i * 0.2} scale={true}>
+              <div class="p-6 max-w-lg">
+                <Image
+                  alt={`Zdjęcie ${participant.name}`}
+                  src={participant.image}
+                  class="w-32 h-40 object-cover rounded-lg mb-4 border border-gray-200"
+                />
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  {participant.name}
+                </h3>
+                <p class="text-gray-600">{participant.description}</p>
+              </div>
+            </ScrollReveal>
+          ))
+        }
+      </div>
+    </div>
+  </ScrollReveal>
+</section>
