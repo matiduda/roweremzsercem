@@ -87,8 +87,11 @@ import AddToCalendarButton from "./AddToCalendarButton.astro";
         </div>
       </div>
       <div class="absolute w-full bottom-0 p-4">
+        <div class="mb-8">
+          <AddToCalendarButton />
+        </div>
         <h3 class="text-lg font-semibold text-gray-900 mb-4">Znajdź nas</h3>
-        <ul class="space-y-2">
+        <ul class="space-y-4">
           <li>
             <a
               href="https://www.instagram.com/roweremzsercem/"
@@ -133,6 +136,13 @@ import AddToCalendarButton from "./AddToCalendarButton.astro";
 </header>
 
 <script is:inline>
+  function handleMenuOpen(menu, btn, isOpen) {
+    menu.classList.toggle("opacity-0", isOpen);
+    menu.classList.toggle("pointer-events-none", isOpen);
+    btn.setAttribute("aria-expanded", String(!isOpen));
+    btn.classList.toggle("is-active", !isOpen);
+  }
+
   document.addEventListener("astro:page-load", () => {
     const btn = document.getElementById("menu-toggle");
     const menu = document.getElementById("mobile-menu");
@@ -145,16 +155,21 @@ import AddToCalendarButton from "./AddToCalendarButton.astro";
       }
 
       btn.addEventListener("click", () => {
-        isOpen = menu.classList.toggle("opacity-0");
-
-        menu.classList.toggle("pointer-events-none", isOpen);
-        btn.setAttribute("aria-expanded", String(!isOpen));
-        btn.classList.toggle("is-active", !isOpen);
+        handleMenuOpen(menu, btn, isOpen);
+        isOpen = !isOpen;
       });
     } else {
       console.log(
         "Required elements 'menu-toggle' and 'mobile-menu' not found on site",
       );
     }
+
+    // Make sure the element is hidden on screen orientation change
+    addEventListener("resize", (event) => {
+      if (window.innerWidth >= 640 && isOpen) {
+        handleMenuOpen(menu, btn, true);
+        isOpen = false;
+      }
+    });
   });
 </script>
