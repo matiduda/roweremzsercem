@@ -44,6 +44,44 @@ export default function Countdown() {
 
   const hasEventStarted = (timeLeft: Time) => timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0;
 
+  const getHoursText = (hours: number) => {
+    if (hours >= 10) {
+      return "godzin";
+    }
+
+    if (hours === 1) {
+      return "godzinę";
+    }
+    if (hours === 0 || hours > 5) {
+      return "godzin";
+    }
+
+    return "godziny"
+  }
+
+  const getMinutesText = (minutes: number) => {
+    if (minutes === 1) {
+      return "minutę";
+    }
+    if (minutes === 2 || minutes === 3 || minutes === 4) {
+      return "minuty";
+    }
+
+    return "minut"
+  }
+
+  const getSecondsText = (seconds: number) => {
+    if (seconds === 1) {
+      return "sekundę";
+    }
+    if (seconds === 2 || seconds === 3 || seconds === 4) {
+      return "sekundy";
+    }
+
+    return "sekund"
+  }
+
+
   return (
     <div className="">
       <div className="text-xl text-center mb-6 space-y-2">
@@ -55,11 +93,11 @@ export default function Countdown() {
         </p>
       </div>
 
-      <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-4 py-6">
         <div className="bg-white text-center rounded-lg border border-gray-200 px-14 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.days}</div><div className="text-lg">dni</div></div>
-        <div className="bg-white text-center rounded-lg border border-gray-200 px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.hours}</div><div className="text-lg">godzin</div></div>
-        <div className="bg-white text-center rounded-lg border border-gray-200 px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.minutes}</div><div className="text-lg">minut</div></div>
-        <div className="bg-white text-center rounded-lg border border-gray-200 px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.seconds}</div><div className="text-lg">sekund</div></div>
+        <div className="bg-white text-center rounded-lg border border-gray-200 px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.hours}</div><div className="text-lg">{getHoursText(timeLeft.hours)}</div></div>
+        <div className="bg-white text-center rounded-lg border border-gray-200 px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.minutes}</div><div className="text-lg">{getMinutesText(timeLeft.minutes)}</div></div>
+        <div className="bg-white text-center rounded-lg border border-gray-200 px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.seconds}</div><div className="text-lg">{getSecondsText(timeLeft.seconds)}</div></div>
       </div>
       {
         hasEventStarted(timeLeft) ? <div className="flex justify-center mt-8">
