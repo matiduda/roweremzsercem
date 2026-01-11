@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./hamburgers.css";
 @plugin "@tailwindcss/typography";
 
 @theme {
