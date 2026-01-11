@@ -8,6 +8,10 @@ import AddToCalendarButton from "./AddToCalendarButton.astro";
     opacity: 1;
     pointer-events: auto;
   }
+
+  .lock-scroll {
+    overflow: hidden;
+  }
 </style>
 
 <header class="sticky top-0 z-50">
@@ -141,6 +145,12 @@ import AddToCalendarButton from "./AddToCalendarButton.astro";
     menu.classList.toggle("pointer-events-none", isOpen);
     btn.setAttribute("aria-expanded", String(!isOpen));
     btn.classList.toggle("is-active", !isOpen);
+
+    if (!isOpen) {
+      document.body.classList.add("lock-scroll");
+    } else {
+      document.body.classList.remove("lock-scroll");
+    }
   }
 
   document.addEventListener("astro:page-load", () => {

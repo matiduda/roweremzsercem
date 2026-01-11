@@ -8,3 +8,7 @@
     --color-twitch: oklch(0.4676 0.1544 296.01);
     --color-twitch-hover: oklch(0.6 0.1544 296.01);
 }
+
+.lock-scroll {
+    overflow: hidden;
+}
