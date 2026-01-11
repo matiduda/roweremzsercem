@@ -9,43 +9,49 @@ const newStreamFeaturesInfo = [
     {
         title: "Trzy dni streama",
         content:
-            "Trzy dni nieprzerwanej transmisji — od porannego startu do wieczornego postoju. Każdy kilometr, każda emocja i każdy moment dostępne na żywo.",
+            "Trzy dni nieprzerwanej transmisji. Od porannego startu do wieczornego postoju. Każdy kilometr, każda emocja i każdy moment dostępne na żywo.",
         icon: "tabler:clock-hour-9",
+        iconClass: "text-blue-500",
         delay: (initialDelay += 0.1),
     },
     {
         title: "Jeszcze dalej",
         content:
-            "W kolejnej edycji podnosimy sobie poprzeczkę — trasa dłuższa o ok. 50 kilometrów. Więcej wysiłku, więcej historii i jeszcze większy cel.",
+            "W kolejnej edycji podnosimy sobie poprzeczkę - trasa dłuższa o ok. 50 kilometrów. Więcej wysiłku, więcej historii i jeszcze bardziej ambitny cel.",
         icon: "tabler:bike",
+        iconClass: "text-red-500",
         delay: (initialDelay += 0.1),
     },
     {
-        title: "Nowy skład",
+        title: "Nowa ekipa",
         content:
-            "Rozszerzamy skład i zapraszamy nowe osoby do wspólnej jazdy. Więcej perspektyw, więcej energii i jeszcze silniejszy zespół.",
+            "Zmieniamy skład i zapraszamy nowe osoby do wspólnej jazdy. Więcej perspektyw, więcej energii, jeszcze silniejszy zespół.",
         icon: "tabler:users-group",
+        iconClass: "text-emerald-500",
         delay: (initialDelay += 0.1),
     },
     {
         title: "Goście specjalni",
         content:
-            "Podczas transmisji planujemy rozmowy z zaproszonymi gośćmi. To dodatkowe historie, doświadczenia i inspirujące rozmowy na żywo.",
+            "Rozmowy z zaproszonymi gośćmi w trakcie transmisji. To dodatkowe historie, doświadczenia i inspirujące rozmowy na żywo.",
         icon: "tabler:phone-call",
+        iconClass: "text-slate-500",
         delay: (initialDelay += 0.1),
     },
     {
         title: "Nowa jakość",
         content:
-            "Nowa strona, nowe wizualizacje i usprawniona transmisja. Stawiamy na stabilność, czytelność i jeszcze lepsze wrażenia dla widzów.",
+            "Nowa strona, nowe wizualizacje, usprawniona transmisja. Stawiamy na stabilność, czytelność i jeszcze lepsze wrażenia dla widzów.",
         icon: "tabler:sparkles",
+        iconClass: "text-sky-500",
         delay: (initialDelay += 0.1),
     },
     {
         title: "Więcej platform",
         content:
-            "Rozwijamy obecność w social mediach — Instagram, TikTok i YouTube Shorts. Chcemy docierać do nowych odbiorców i budować większą społeczność.",
+            "Rozwijamy obecność w social mediach - Instagram, TikTok, YouTube Shorts. Chcemy docierać do nowych odbiorców i budować większą społeczność.",
         icon: "tabler:device-mobile",
+        iconClass: "text-rose-500",
         delay: (initialDelay += 0.1),
     },
 ];
@@ -57,7 +63,10 @@ const newStreamFeaturesInfo = [
             <ScrollReveal client:load delay={info.delay} scale={true}>
                 <div class="p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
                     <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                        <Icon name={info.icon} class="w-6 h-6 text-gray-900" />
+                        <Icon
+                            name={info.icon}
+                            class={`w-6 h-6 ${info.iconClass}`}
+                        />
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">
                         {info.title}

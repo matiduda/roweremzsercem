@@ -46,11 +46,20 @@ export default function Countdown() {
 
   return (
     <div className="">
+      <div className="text-xl text-center mb-6 space-y-2">
+        <p>
+          Start <span className="font-semibold">1 maja</span> o godz. <span className="font-semibold">9:00</span>
+        </p>
+        <p>
+          czyli dokładnie za:
+        </p>
+      </div>
+
       <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white text-center rounded-lg border border-gray-200 px-14 py-6"><div className="text-5xl md:text-8xl font-thin mb-3">{timeLeft.days}</div><div className="text-lg">dni</div></div>
-        <div className="bg-white text-center rounded-lg border border-gray-200 px-10 py-6"><div className="text-5xl md:text-8xl font-thin mb-3">{timeLeft.hours}</div><div className="text-lg">godzin</div></div>
-        <div className="bg-white text-center rounded-lg border border-gray-200 px-10 py-6"><div className="text-5xl md:text-8xl font-thin mb-3">{timeLeft.minutes}</div><div className="text-lg">minut</div></div>
-        <div className="bg-white text-center rounded-lg border border-gray-200 px-10 py-6"><div className="text-5xl md:text-8xl font-thin mb-3">{timeLeft.seconds}</div><div className="text-lg">sekund</div></div>
+        <div className="bg-white text-center rounded-lg border border-gray-200 px-14 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.days}</div><div className="text-lg">dni</div></div>
+        <div className="bg-white text-center rounded-lg border border-gray-200 px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.hours}</div><div className="text-lg">godzin</div></div>
+        <div className="bg-white text-center rounded-lg border border-gray-200 px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.minutes}</div><div className="text-lg">minut</div></div>
+        <div className="bg-white text-center rounded-lg border border-gray-200 px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.seconds}</div><div className="text-lg">sekund</div></div>
       </div>
       {
         hasEventStarted(timeLeft) ? <div className="flex justify-center mt-8">
@@ -65,15 +74,6 @@ export default function Countdown() {
           </a>
         </div> : <></>
       }
-
-      <div className="text-xl text-center mt-14 space-y-4">
-        <p>
-          Czas eventu: <span className="font-semibold">1 - 3 maja 2026</span>
-        </p>
-        <p>
-          Startujemy <span className="font-semibold">1 maja</span> o godz. <span className="font-semibold">9:00</span>
-        </p>
-      </div>
     </div>
   );
 }

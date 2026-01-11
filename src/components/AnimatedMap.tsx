@@ -73,7 +73,7 @@ export default function AnimatedMap() {
         >
           <style>
             {`
-              .a{fill:none;stroke:#d7d7d7;stroke-linejoin:round;stroke-width:2}
+              .a{fill:none;stroke:#e5e7eb;stroke-linejoin:round;stroke-width:2}
               .b{fill:none;stroke:#4a5565;stroke-linejoin:round;stroke-width:4}
               .c{fill:#101828;stroke:#fff;paint-order:stroke fill markers;stroke-linecap:round;stroke-miterlimit:100;stroke-width:16}
             `}
@@ -84,11 +84,11 @@ export default function AnimatedMap() {
         </motion.svg>
       </div>
       {/* https://tabler.io/icons */}
-      <div className="w-full flex justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-bike"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M2 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M16 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M12 19l0 -4l-3 -3l5 -4l2 3l3 0" /><path d="M16 5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg>
+      <div className="w-full flex justify-center text-gray-600">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-bike"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M2 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M16 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M12 19l0 -4l-3 -3l5 -4l2 3l3 0" /><path d="M16 5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg>
       </div>
-      <p className="text-2xl font-semibold text-gray-600 text-center my-2">Sandomierz - Wrocław</p>
-      <p className="text-xl text-gray-600 text-center"><motion.span>{rounded}</motion.span> km</p>
+      <p className="text-2xl font-semibold text-center my-2">Sandomierz → Wrocław</p>
+      <p className="text-xl text-center"><motion.span>{rounded}</motion.span> km</p>
     </div>
   );
 }
