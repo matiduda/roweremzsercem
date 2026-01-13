@@ -12,14 +12,13 @@ import HeroText from "./HeroText";
     >
       <!-- Background video -->
       <video
-        transition:persist
         class="absolute inset-0 h-full w-full object-cover rounded-lg border border-gray-200"
         autoplay
         muted
         loop
         playsinline
       >
-        <source src={stream} type="video/mp4" />
+        <source src={stream} type="video/mp4" id="backgroundVideoSource" />
       </video>
       <!-- Overlay (for contrast) -->
       <div class="absolute inset-0 bg-black/50 rounded-lg"></div>
@@ -56,3 +55,22 @@ import HeroText from "./HeroText";
     </div>
   </ScrollReveal>
 </section>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const video = document.querySelector("video");
+
+    if (!video) return;
+
+    // Safari needs a hard reset
+    video.pause();
+    video.load();
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // autoplay might be blocked, but muted usually works
+      });
+    }
+  });
+</script>
