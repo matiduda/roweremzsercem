@@ -57,20 +57,27 @@ import HeroText from "./HeroText";
 </section>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const video = document.querySelector("video");
+  //  Desktop Safari, all mobile WebKit browsers on iOS and webview iOS
+  function isWebkit() {
+    return "GestureEvent" in window;
+  }
 
-    if (!video) return;
+  if (isWebkit()) {
+    document.addEventListener("astro:page-load", () => {
+      const video = document.querySelector("video");
 
-    // Safari needs a hard reset
-    video.pause();
-    video.load();
+      if (!video) return;
 
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // autoplay might be blocked, but muted usually works
-      });
-    }
-  });
+      // Safari needs a hard reset
+      video.pause();
+      video.load();
+
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // autoplay might be blocked, but muted usually works
+        });
+      }
+    });
+  }
 </script>
