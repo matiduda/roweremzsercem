@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import ScrollReveal from "./ScrollReveal";
 
 type Time = {
   days: number;
@@ -89,6 +90,7 @@ export default function Countdown() {
     return "sekund"
   }
 
+  const scrollDelayDifference = 0.2;
 
   return (
     <div className="">
@@ -102,10 +104,18 @@ export default function Countdown() {
       </div>
 
       <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-4 py-6">
-        <div className="bg-white text-center rounded-lg border border-gray-200 hover:shadow-lg transition-shadow px-14 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.days}</div><div className="text-lg">{getDaysText(timeLeft.days)}</div></div>
-        <div className="bg-white text-center rounded-lg border border-gray-200 hover:shadow-lg transition-shadow px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.hours}</div><div className="text-lg">{getHoursText(timeLeft.hours)}</div></div>
-        <div className="bg-white text-center rounded-lg border border-gray-200 hover:shadow-lg transition-shadow px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.minutes}</div><div className="text-lg">{getMinutesText(timeLeft.minutes)}</div></div>
-        <div className="bg-white text-center rounded-lg border border-gray-200 hover:shadow-lg transition-shadow px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.seconds}</div><div className="text-lg">{getSecondsText(timeLeft.seconds)}</div></div>
+        <ScrollReveal delay={0}>
+          <div className="bg-white text-center rounded-lg border border-gray-200 hover:shadow-lg transition-shadow px-14 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.days}</div><div className="text-lg">{getDaysText(timeLeft.days)}</div></div>
+        </ScrollReveal>
+        <ScrollReveal delay={scrollDelayDifference * 1}>
+          <div className="bg-white text-center rounded-lg border border-gray-200 hover:shadow-lg transition-shadow px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.hours}</div><div className="text-lg">{getHoursText(timeLeft.hours)}</div></div>
+        </ScrollReveal>
+        <ScrollReveal delay={scrollDelayDifference * 2}>
+          <div className="bg-white text-center rounded-lg border border-gray-200 hover:shadow-lg transition-shadow px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.minutes}</div><div className="text-lg">{getMinutesText(timeLeft.minutes)}</div></div>
+        </ScrollReveal>
+        <ScrollReveal delay={scrollDelayDifference * 3}>
+          <div className="bg-white text-center rounded-lg border border-gray-200 hover:shadow-lg transition-shadow px-10 py-6"><div className="text-5xl md:text-8xl font-extralight mb-3">{timeLeft.seconds}</div><div className="text-lg">{getSecondsText(timeLeft.seconds)}</div></div>
+        </ScrollReveal>
       </div>
       {
         hasEventStarted(timeLeft) ? <div className="flex justify-center mt-1">

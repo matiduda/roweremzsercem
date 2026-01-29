@@ -4,18 +4,19 @@ import { Image } from "astro:assets";
 
 import HerbSando from "../assets/sponsors/herb_snd.png";
 import LogoSando from "../assets/sponsors/sando.png";
+import FHUCyklistaLogo from "../assets/sponsors/fhu_cyklista.webp";
 import Michu from "../assets/people/michu.jpg";
 
 const sponsors = [
   {
-    name: "Miasto Sandomierz",
+    name: "Urząd Miasta Sandomierz",
     image: LogoSando,
     href: "https://sandomierz.eu/",
   },
   {
-    name: "Urząd Miasta Sandomierz",
-    image: HerbSando,
-    href: "https://sandomierz.eu/229/strona-glowna.html",
+    name: "FHU Cyklista Sklep i Serwis",
+    image: FHUCyklistaLogo,
+    href: "https://sklepcyklista.pl/",
   },
 ];
 ---
@@ -23,7 +24,7 @@ const sponsors = [
 <section id="features" class="max-w-6xl mx-auto pt-12 pb-16 p-4">
   <ScrollReveal client:load delay={0.2}>
     <h1 class="text-4xl font-bold text-gray-900 my-4 text-center">
-      Partnerzy medialni
+      Partnerzy akcji
     </h1>
   </ScrollReveal>
 
@@ -37,12 +38,15 @@ const sponsors = [
         {
           sponsors.map((sponsor, i) => (
             <a href={sponsor.href}>
-              <div class="bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-                <Image
-                  alt={`${sponsor.name}`}
-                  src={sponsor.image}
-                  class="h-24 w-auto"
-                />
+              <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
+                <div class="w-full flex justify-center p-4 mb-2">
+                  <Image
+                    alt={`${sponsor.name}`}
+                    src={sponsor.image}
+                    class="h-24 w-auto"
+                  />
+                </div>
+                <p class="max-w-64 text-center">{sponsor.name}</p>
               </div>
             </a>
           ))
