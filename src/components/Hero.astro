@@ -1,7 +1,6 @@
 ---
 import ScrollReveal from "./ScrollReveal.tsx";
 import { Icon } from "astro-icon/components";
-import stream from "../assets/stream.mp4";
 import HeroText from "./HeroText";
 ---
 
@@ -18,7 +17,11 @@ import HeroText from "./HeroText";
         loop
         playsinline
       >
-        <source src={stream} type="video/mp4" id="backgroundVideoSource" />
+        <source
+          src="https://files.catbox.moe/8vdioe.mp4"
+          type="video/mp4"
+          id="backgroundVideoSource"
+        />
       </video>
       <!-- Overlay (for contrast) -->
       <div class="absolute inset-0 bg-black/50 rounded-lg"></div>
