@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 import Mariusz from "../assets/people/mari.jpg";
 import Mati from "../assets/people/mati.jpg";
 import Michu from "../assets/people/michu.jpg";
+import Ola from "../assets/people/ola.jpg";
 
 const participants = [
   {
@@ -25,6 +26,12 @@ const participants = [
       "Techniczny ogarniacz na dwóch kółkach i nasza złota rączka. Człowiek tryskający energią i spokojem, który stawia na niekonwencjonalne rozwiązania i praktyczne podejście do problemów. Gdy pojawia się wyzwanie, on po prostu je rozwiązuje - spokojnie, skutecznie i po swojemu.",
     image: Michu,
   },
+  {
+    name: "Aleksandra Lipiec",
+    description:
+      "Ola to serce naszego zaplecza kreatywnego. Zawsze uśmiechnięta, szczera i pomocna, to ona spina social media, scenariusze i cały organizacyjny chaos w jedną, działającą całość. Prywatnie jest młośniczką podróży oraz kocha wszystkie zwierzaki.",
+    image: Ola,
+  },
 ];
 ---
 
@@ -41,23 +48,30 @@ const participants = [
 
   <ScrollReveal client:load delay={0.4}>
     <div class="flex justify-center">
-      <div class="flex flex-col sm:flex-row gap-4">
+      <div class="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {
-          participants.map((participant, i) => (
-            <ScrollReveal client:load delay={0.2 + i * 0.2} scale={true}>
-              <div class="p-6 max-w-lg">
-                <Image
-                  alt={`Zdjęcie ${participant.name}`}
-                  src={participant.image}
-                  class="w-32 h-40 object-cover rounded-lg mb-4 border border-gray-200"
-                />
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                  {participant.name}
-                </h3>
-                <p class="text-gray-600">{participant.description}</p>
+          participants.map((participant, i) => {
+            const isLast = i === participants.length - 1;
+            return (
+              <div
+                class={`flex justify-center col-span-1 ${isLast ? "lg:col-span-3" : ""}`}
+              >
+                <ScrollReveal client:load delay={0.2 + i * 0.2} scale={true}>
+                  <div class="p-6 max-w-90">
+                    <Image
+                      alt={`Zdjęcie ${participant.name}`}
+                      src={participant.image}
+                      class="w-32 h-40 object-cover rounded-lg mb-4 border border-gray-200"
+                    />
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                      {participant.name}
+                    </h3>
+                    <p class="text-gray-600">{participant.description}</p>
+                  </div>
+                </ScrollReveal>
               </div>
-            </ScrollReveal>
-          ))
+            );
+          })
         }
       </div>
     </div>
