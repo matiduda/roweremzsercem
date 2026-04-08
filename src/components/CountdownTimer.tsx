@@ -10,8 +10,8 @@ type Time = {
 }
 
 export default function Countdown() {
-  // 1 maja 2026 - 9:00
-  const targetDate = new Date(2026, 4, 1, 9);
+  // 1 maja 2026 - 9:00 (UTC)
+  const targetDate = new Date("2026-04-08T22:37:00+02:00");
 
   const calculateTimeLeft = (): Time => {
     const difference = targetDate.getTime() - new Date().getTime();

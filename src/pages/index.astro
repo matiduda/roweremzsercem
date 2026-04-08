@@ -11,7 +11,8 @@ import StreamEmbed from "../components/StreamEmbed.astro";
 import StreamInfo from "../components/StreamInfo.astro";
 
 export const isStream = () => {
-  return new Date().getTime() > new Date(2026, 3, 8, 22, 37).getTime();
+  // 1 maja 2026 - 9:00 (UTC)
+  return new Date().getTime() > new Date("2026-04-08T22:37:00+02:00").getTime();
 };
 ---
 
