@@ -7,14 +7,20 @@ import CTA from "../components/CTA.astro";
 import Footer from "../components/Footer.astro";
 import Team from "../components/Team.astro";
 import Sponsors from "../components/Sponsors.astro";
+import StreamEmbed from "../components/StreamEmbed.astro";
+import StreamInfo from "../components/StreamInfo.astro";
+
+export const isStream = () => {
+  return new Date().getTime() > new Date(2026, 3, 8, 22, 37).getTime();
+};
 ---
 
 <!-- To be deleted! Only for compatibility reasons as I sent this link to a potential partner and I don't know if they have opened it yet -->
 <Layout>
   <Header />
   <main>
-    <Hero />
-    <Features />
+    {isStream() ? <StreamEmbed /> : <Hero />}
+    {isStream() ? <StreamInfo /> : <Features />}
     <Team />
     <Sponsors />
   </main>

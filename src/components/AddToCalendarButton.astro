@@ -1,8 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
+import { isStream } from "../pages/index.astro";
+
 ---
 
-<a
+{
+    isStream() ? <></> : <a
     target="_blank"
     href="https://addcal.io/e/bb5wt5ymbo1j"
     class="px-4 py-2 bg-rzs text-white rounded-lg hover:bg-rzs-hover flex transition-colors justify-center items-center gap-2 font-medium"
@@ -10,3 +13,6 @@ import { Icon } from "astro-icon/components";
     <Icon name="tabler:calendar-plus" class="text-white inline w-5 h-5" />
     Dodaj do kalendarza
 </a>
+}
+
+
