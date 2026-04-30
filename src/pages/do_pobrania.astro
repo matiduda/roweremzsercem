@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ScrollReveal from "../components/ScrollReveal.tsx";
+---
+
+<Layout>
+  <Header />
+  <main>
+    <section class="max-w-4xl mx-auto px-4 pb-10">
+      <div class="prose prose-lg max-w-none">
+        <ScrollReveal client:load delay={0}>
+          <h2>2026</h2>
+        </ScrollReveal>
+        <ul>
+          <ScrollReveal client:load delay={0.1}>
+            <li>
+              <a
+                href="/2026/regulamin_konkursu_instagram.pdf"
+                target="_blank"
+                class="hover:text-gray-600">Regulamin konkursu na Instagramie</a
+              >
+            </li>
+          </ScrollReveal>
+        </ul>
+      </div>
+    </section>
+  </main>
+</Layout>
+<Footer />
