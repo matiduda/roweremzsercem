@@ -16,12 +16,12 @@ export const isStream = () => {
 };
 ---
 
-<!-- To be deleted! Only for compatibility reasons as I sent this link to a potential partner and I don't know if they have opened it yet -->
 <Layout>
   <Header />
   <main>
-    {isStream() ? <StreamEmbed /> : <Hero />}
-    {isStream() ? <StreamInfo /> : <Features />}
+    <!-- {isStream() ? <StreamEmbed /> : <Hero />} -->
+    <Hero />
+    <Features />
     <Team />
     <Sponsors />
   </main>

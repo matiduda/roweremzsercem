@@ -6,8 +6,10 @@ export default function HeroText() {
     "Kręcimy kilometry",
     "Prowadzimy stream",
     "Zbieramy fundusze",
-    "Promujemy aktywność",
-    "Działamy razem",
+    "Promujemy sport",
+    "Stawiamy wyzwanie",
+    "Działamy wspólnie",
+    "Zwiedzamy Polskę",
   ];
 
   const [index, setIndex] = useState(0);
@@ -21,7 +23,7 @@ export default function HeroText() {
   }, []);
 
   return (
-    <div className="relative h-28 md:h-22">
+    <div className="absolute w-full bottom-30 md:bottom-20">
       <AnimatePresence mode="wait">
         <motion.h2
           key={index}
@@ -29,7 +31,7 @@ export default function HeroText() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="absolute inset-0 text-5xl md:text-6xl font-bold text-gray-100 text-shadow-md"
+          className="absolute inset-0 text-5xl md:text-6xl font-bold text-gray-100 text-shadow-sm text-left"
         >
           {texts[index]}
         </motion.h2>
