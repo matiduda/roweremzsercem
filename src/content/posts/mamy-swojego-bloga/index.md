@@ -22,6 +22,6 @@ To są momenty, które zostaną w pamięci na długo i jest nam niezwykle miło,
 
 Głównym żródłem komunikacji z naszymi widzami są media społecznościowe - rzeczywistość wygląda dziś tak, że chcąc dotrzeć do szerszej publiki trzeba być tam obecnym. Ale krótki format nie daje zawsze opowiedzieć o wszystkim ze szczegółami i wymaga też sporo zaangażowania z naszej strony. Dlatego właśnie rozbudowaliśmy naszą stronę o część z postami, w których będziemy mogli opowiadać dokładnie o tym, co dzieje się u nas aktualnie.
 
-Mamy nadzieję, że taka forma przypadnie wam do gustu i będziecie chcieli ją śledzić. Gdy tylko będziemy mieli jakieś nowe wieści, na pewno pojawią się tutaj razem z komunikatamia w social mediach.
+Mamy nadzieję, że taka forma przypadnie wam do gustu i będziecie chcieli ją śledzić. Gdy tylko będziemy mieli jakieś nowe wieści, na pewno pojawią się tutaj razem z komunikatami w social mediach.
 
 Jeśli chodzi o kolejne edycje, to na tą chwilę nie mamy jeszcze nic konkretnego do ogłoszenia, ale możecie być pewni, że nie przestajemy działać. Na razie raz jeszcze dziękujemy za tegoroczną edycję i mamy nadzieję, że pozostaniecie z nami!
