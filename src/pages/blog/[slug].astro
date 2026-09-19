@@ -1,0 +1,153 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+import LocalIcon from "@/components/LocalIcon.astro";
+import PostCard from "@/components/PostCard.astro";
+import { siteConfig } from "@/config/site";
+import {
+  authorSlug,
+  categoryHref,
+  formatDate,
+  getAdjacent,
+  getRelated,
+  postHref,
+  postSlug,
+  readingLabel,
+  visiblePosts,
+  type Post,
+} from "@/lib/posts";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import ScrollReveal from "@/components/ScrollReveal";
+
+export async function getStaticPaths() {
+  const allPosts = visiblePosts(await getCollection("posts"));
+  return allPosts.map((post) => ({
+    params: { slug: postSlug(post) },
+    props: { post, allPosts },
+  }));
+}
+
+interface Props {
+  post: Post;
+  allPosts: Post[];
+}
+
+const { post, allPosts } = Astro.props;
+const { Content } = await render(post);
+const data = post.data;
+const related = getRelated(allPosts, post);
+const { newer, older } = getAdjacent(allPosts, post);
+
+---
+
+<Layout title={data.title}>
+  <Header />
+  <main>
+    <article class="max-w-4xl mx-auto px-4 py-10">
+      <div>
+        <header>
+          <ScrollReveal client:load delay={0}>
+            <div class="mb-6 md:mb-8">
+              <a href={categoryHref(data.category)}>
+                <span
+                class="border-slate-200 border bg-white px-4 py-2 rounded-full hover:shadow-lg transition-shadow text-gray-500 text-xs md:text-sm "
+                >{data.category}</span
+                >
+              </a>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal client:load delay={0.05}>
+          <h1 class="text-3xl md:text-5xl font-bold text-gray-700">
+            {data.title}
+          </h1>
+          </ScrollReveal>
+          <ScrollReveal client:load delay={0.25}>
+          <p class="text-md md:text-lg text-gray-500 my-2">{data.description}</p>
+          </ScrollReveal>
+          <ScrollReveal client:load delay={0.3}>
+          <div class="add-dotted-spacer text-sm font-semibold text-slate-500 [--dot-border-color:var(--color-slate-500)]">
+            <span>{formatDate(data.date)}</span>
+            <span>{readingLabel(post)}</span>
+          </div>
+        </ScrollReveal>
+        </header>
+
+        {
+          data.cover && (
+            <ScrollReveal client:load delay={0.6}>
+              <Image
+                src={data.cover.src}
+                alt={data.cover.alt}
+                widths={[640, 960, 1200, 1600, 2000]}
+                sizes="(min-width: 1200px) 1200px, 100vw"
+                loading="eager"
+                decoding="async"
+                class="w-full rounded-4xl border-slate-200 border mt-6 md:mt-8"
+              />
+            </ScrollReveal>
+          )
+        }
+      </div>
+
+      <ScrollReveal client:load delay={0.8}>
+      <div class="prose md:prose-lg max-w-none mt-12">
+        <Content />
+      </div>
+      </ScrollReveal>
+
+    <ScrollReveal client:load delay={0.85}>
+      <div class="flex flex-row gap-4 w-full justify-center mt-8">
+        <a
+          href="/blog"
+          class="inline-block px-8 py-3 bg-white text-gray-900 border border-gray-300 rounded-xl hover:bg-gray-200 transition-colors font-medium"
+        >
+          Więcej postów
+        </a>
+      </div>  
+    </ScrollReveal>
+
+      {
+        (newer || older) && (
+          <footer class="mt-16">
+            <hr class="h-px mt-0 bg-gray-200 border-0 mb-6" />
+            <nav class="grid gap-8 sm:grid-cols-2" aria-label="Post navigation">
+              <div>
+                {older && (
+                  <span class="eyebrow">
+                      <span class="link-nudge__arrow link-nudge__arrow--prev ">
+                        &larr;
+                      </span>{" "}
+                      Poprzedni post
+                    </span>
+                    <a href={postHref(older)} class="link-title link-nudge">
+                    <span class="link-title__text mt-2 block font-semibold leading-snug text-gray-600 hover:text-gray-900 transition-colors">
+                      {older.data.title}
+                    </span>
+                  </a>
+                )}
+              </div>
+              <div class="sm:text-right">
+                {newer && (
+                  <span class="eyebrow">
+                      Następny post{" "}
+                      <span class="link-nudge__arrow link-nudge__arrow--next">
+                        &rarr;
+                      </span>
+                    </span>
+                      <a href={postHref(newer)} class="link-title link-nudge">
+                    <span class="link-title__text mt-2 block font-semibold leading-snug text-gray-600 hover:text-gray-900 transition-colors">
+                      {newer.data.title}
+                    </span>
+                  </a>
+                )}
+              </div>
+            </nav>
+          </footer>
+        )
+      }
+    </article>
+  </main>
+  <Footer />
+</Layout>

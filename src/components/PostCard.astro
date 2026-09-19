@@ -1,0 +1,61 @@
+---
+import { formatDate, postHref, readingLabel, type Post } from "@/lib/posts";
+import { Image } from "astro:assets";
+import ScrollReveal from "./ScrollReveal";
+
+interface Props {
+  post: Post;
+  headingLevel?: "h2" | "h3";
+  addReadingLabel?: boolean;
+}
+
+const { post, headingLevel = "h2", addReadingLabel = false } = Astro.props;
+const { title, description, date, author } = post.data;
+const href = postHref(post);
+const Heading = headingLevel;
+const isoDate = date.toISOString();
+const readableDate = formatDate(date);
+---
+
+<article class="mt-4 h-full">
+  <a href={href} class="link-title flex flex-col h-full group">
+    <div
+      class="overflow-hidden rounded-3xl border border-slate-200 group-hover:shadow-lg group-hover:-translate-y-1 transition duration-500"
+    >
+      {
+        post.data.cover ? (
+          <Image
+            src={post.data.cover.src}
+            alt={post.data.cover.alt ?? ""}
+            class={`object-cover rounded-3xl scale-100 group-hover:scale-110 transition-transform duration-500`}
+          />
+        ) : (
+          <Image
+            src="/site_preview.png"
+            alt=""
+            width={600}
+            height={600}
+            class={`object-cover rounded-3xl scale-100 group-hover:scale-110 transition-transform duration-500`}
+          />
+        )
+      }
+    </div>
+
+    <div id="card-meta" class="flex-1 flex flex-col mt-4">
+      <Heading
+        class="text-lg font-bold text-slate-600 group-hover:text-slate-500 transition-colors"
+        >{title}</Heading
+      >
+      <p class="text-slate-500 mt-1">{description}</p>
+
+      <p
+        class="add-dotted-spacer text-sm font-semibold text-slate-500 [--dot-border-color:var(--color-slate-500)] mt-auto"
+      >
+        <time class="meta-accent" datetime={isoDate}>
+          {readableDate}
+        </time>
+        {false && <span>{readingLabel(post, addReadingLabel)}</span>}
+      </p>
+    </div>
+  </a>
+</article>

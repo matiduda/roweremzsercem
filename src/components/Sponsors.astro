@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 
 import LogoSando from "../assets/sponsors/sando.png";
 import FHUCyklistaLogo from "../assets/sponsors/fhu_cyklista.png";
-import PrzytuliskoLogo from "../assets/sponsors/przytulisko.jpg";
+import PrzytuliskoLogo from "../assets/sponsors/przytulisko.png";
 
 const sponsors = [
   {
@@ -25,34 +25,28 @@ const sponsors = [
 ];
 ---
 
-<section id="features" class="max-w-6xl mx-auto pt-12 pb-16 p-4">
-  <ScrollReveal client:load delay={0.2}>
-    <h1 class="text-4xl font-bold text-gray-900 my-4 text-center">
-      Partnerzy akcji
-    </h1>
-  </ScrollReveal>
-
+<section id="features" class="max-w-6xl mx-auto p-4">
   <ScrollReveal client:load delay={0.3}>
     <hr class="h-px mt-0 bg-gray-200 border-0 mb-6" />
   </ScrollReveal>
 
   <ScrollReveal client:load delay={0.4}>
     <div class="flex justify-center">
-      <div class="flex gap-6 flex-col md:flex-row">
+      <div class="flex gap-6">
         {
           sponsors.map((sponsor, i) => (
-            <a href={sponsor.href}>
-              <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-                <div class="w-full flex justify-center p-4 mb-2">
-                  <Image
-                    alt={`${sponsor.name}`}
-                    src={sponsor.image}
-                    class="h-18 w-auto"
-                  />
-                </div>
-                <p class="max-w-64 text-center text-gray-800 font-semibold text-md">
-                  {sponsor.name}
-                </p>
+            <a
+              href={sponsor.href}
+              title={sponsor.name}
+              class="grayscale opacity-75 hover:opacity-100 transition-opacity duration-200"
+            >
+              <div class="w-full flex justify-center p-4 mb-2">
+                <Image
+                  alt={`${sponsor.name}`}
+                  src={sponsor.image}
+                  alt={sponsor.name}
+                  class="h-16 md:h-18 w-auto"
+                />
               </div>
             </a>
           ))

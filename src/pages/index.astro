@@ -11,6 +11,7 @@ import StreamEmbed from "../components/StreamEmbed.astro";
 import StreamInfo from "../components/StreamInfo.astro";
 import AboutUs from "../components/AboutUs.astro";
 import StreamFeatures from "../components/StreamFeatures.astro";
+import LatestPosts from "@/components/LatestPosts.astro";
 
 export const isStream = () => {
   // 1 maja 2026 - 9:00 (UTC)
@@ -22,8 +23,9 @@ export const isStream = () => {
   <Header />
   <Hero />
   <AboutUs />
+  <LatestPosts />
   <!-- <Features /> -->
   <!-- <Team /> -->
-  <!-- <Sponsors /> -->
+  <Sponsors />
 </Layout>
 <Footer />

@@ -14,7 +14,7 @@ const newStreamFeaturesInfo = [
         addPlusSign: true,
         content: "Tyle kilometrów przejechaliśmy wspólnie w ramach akcji",
         icon: "tabler:bike",
-        iconClass: "text-blue-500",
+        iconClass: "text-blue-400",
         delay: (initialDelay += 0.1),
     },
     {
@@ -22,31 +22,31 @@ const newStreamFeaturesInfo = [
         unit: "zł",
         duration: 10,
         addPlusSign: false,
-        content: "Zebranych dla Przytuliska na Wiśniowej w Sandomierzu",
+        content: "Środków zebranych dla Przytuliska na Wiśniowej w Sandomierzu",
         icon: "tabler:paw",
-        iconClass: "text-red-500",
+        iconClass: "text-green-400",
         delay: (initialDelay += 0.1),
     },
     {
         value: 2,
-        unit: "",
+        unit: "×",
         duration: 0,
         addPlusSign: false,
-        content: 'Pomyślnie zakończonych edycji "Rowerem z Sercem"',
+        content: 'Ukończonych do tej pory edycji akcji "Rowerem z Sercem"',
         icon: "tabler:heart",
-        iconClass: "text-emerald-500",
+        iconClass: "text-rose-400",
         delay: (initialDelay += 0.1),
     },
 ];
 ---
 
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pb-6 text-left">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 pb-6 text-left">
     {
         newStreamFeaturesInfo.map((info) => (
             <ScrollReveal client:load delay={info.delay} scale={true}>
                 <div class="p-6 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
-                    <div class="flex items-center mb-4 gap-4">
-                        <div class="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center">
                             <Icon
                                 name={info.icon}
                                 class={`w-8 h-8 ${info.iconClass}`}
@@ -62,7 +62,7 @@ const newStreamFeaturesInfo = [
                             {" " + info.unit}
                         </div>
                     </div>
-                    <p class="text-gray-600 text-lg">{info.content}</p>
+                    <p class="text-gray-600 text-lg mt-4">{info.content}</p>
                 </div>
             </ScrollReveal>
         ))
