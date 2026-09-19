@@ -1,0 +1,70 @@
+---
+import { Icon } from "astro-icon/components";
+import ScrollReveal from "./ScrollReveal";
+import { icons } from "@iconify-json/tabler/index.js";
+import TweenedNumber from "./TweenedNumber";
+
+let initialDelay = 0.6;
+
+const newStreamFeaturesInfo = [
+    {
+        value: 796.24,
+        unit: "km",
+        duration: 7,
+        addPlusSign: true,
+        content: "Tyle kilometrów przejechaliśmy wspólnie w ramach akcji",
+        icon: "tabler:bike",
+        iconClass: "text-blue-500",
+        delay: (initialDelay += 0.1),
+    },
+    {
+        value: 4795.98,
+        unit: "zł",
+        duration: 10,
+        addPlusSign: false,
+        content: "Zebranych dla Przytuliska na Wiśniowej w Sandomierzu",
+        icon: "tabler:paw",
+        iconClass: "text-red-500",
+        delay: (initialDelay += 0.1),
+    },
+    {
+        value: 2,
+        unit: "",
+        duration: 0,
+        addPlusSign: false,
+        content: 'Pomyślnie zakończonych edycji "Rowerem z Sercem"',
+        icon: "tabler:heart",
+        iconClass: "text-emerald-500",
+        delay: (initialDelay += 0.1),
+    },
+];
+---
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pb-6 text-left">
+    {
+        newStreamFeaturesInfo.map((info) => (
+            <ScrollReveal client:load delay={info.delay} scale={true}>
+                <div class="p-6 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div class="flex items-center mb-4 gap-4">
+                        <div class="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <Icon
+                                name={info.icon}
+                                class={`w-8 h-8 ${info.iconClass}`}
+                            />
+                        </div>
+                        <div class="text-2xl font-semibold text-gray-900">
+                            <TweenedNumber
+                                client:load
+                                duration={info.duration}
+                                value={info.value}
+                                addPlusSign={info.addPlusSign}
+                            />
+                            {" " + info.unit}
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-lg">{info.content}</p>
+                </div>
+            </ScrollReveal>
+        ))
+    }
+</div>

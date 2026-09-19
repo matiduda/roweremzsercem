@@ -4,14 +4,12 @@ import { Icon } from "astro-icon/components";
 import HeroText from "./HeroText";
 ---
 
-<section class="max-w-6xl mx-auto px-4 pt-10 md:pt-18 text-center">
+<section class="max-w-6xl mx-auto px-4 py-4 md:py-10 text-center relative">
   <ScrollReveal client:load>
-    <div
-      class="pt-56 md:pt-112 p-8 bg-white rounded-xl border border-gray-200 shadow-lg hover:shadow-2xl transition-shadow"
-    >
+    <div class="pt-48 md:pt-96 p-8 bg-white rounded-4xl border border-gray-200">
       <!-- Background video -->
       <video
-        class="absolute inset-0 h-full w-full object-cover rounded-xl border border-gray-200"
+        class="absolute inset-0 h-full w-full object-cover rounded-4xl border border-gray-200 inset-shadow-sm"
         autoplay
         muted
         loop
@@ -25,7 +23,7 @@ import HeroText from "./HeroText";
       </video>
       <!-- Overlay (for contrast) -->
       <div
-        class="absolute inset-0 bg-linear-to-b from-gray-500/20 to-gray-900/70 rounded-xl"
+        class="absolute inset-0 bg-linear-to-b from-gray-500/20 to-gray-900/70 rounded-4xl"
       >
       </div>
       <ScrollReveal client:load delay={0.2}>
@@ -33,10 +31,10 @@ import HeroText from "./HeroText";
       </ScrollReveal>
       <ScrollReveal client:load delay={0.4}>
         <p
-          class="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl text-shadow-sm text-left"
+          class="text-xl md:text-2xl text-gray-200 mb-8 mt-5 max-w-2xl text-shadow-sm text-left"
         >
           Jedziemy na rowerach, transmitujemy na żywo, razem z widzami zbieramy
-          środki na <span class="font-semibold">realną pomoc</span>
+          środki na realną pomoc
         </p>
       </ScrollReveal>
       <ScrollReveal client:load delay={0.6}>
