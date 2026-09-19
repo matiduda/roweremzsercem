@@ -6,8 +6,9 @@ export default function HeroText() {
     "Kręcimy kilometry",
     "Prowadzimy stream",
     "Zbieramy fundusze",
-    "Promujemy aktywność",
-    "Działamy razem",
+    "Promujemy sport",
+    "Zbieramy fundusze",
+    "Zwiedzamy Polskę",
   ];
 
   const [index, setIndex] = useState(0);
@@ -15,21 +16,21 @@ export default function HeroText() {
   useEffect(() => {
     const id = setInterval(() => {
       setIndex((prev) => (prev + 1) % texts.length);
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(id);
   }, []);
 
   return (
-    <div className="relative h-28 md:h-22">
+    <div className="w-full">
       <AnimatePresence mode="wait">
         <motion.h2
           key={index}
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -25 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          className="absolute inset-0 text-5xl md:text-6xl font-bold text-gray-100 text-shadow-md"
+          exit={{ opacity: 0, y: 15 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
+          className="inset-0 text-5xl md:text-6xl font-bold text-gray-100 text-shadow-sm text-left"
         >
           {texts[index]}
         </motion.h2>

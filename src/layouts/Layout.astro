@@ -1,17 +1,52 @@
 ---
 import ClientRouter from "astro/components/ClientRouter.astro";
 import "../styles/global.css";
+import { siteConfig } from "@/config/site";
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	type?: "website" | "article";
+}
+
+const {
+	title = siteConfig.title,
+	description = siteConfig.description,
+	image = siteConfig.socialImage,
+	type = "website",
+} = Astro.props;
+
+const pageTitle =
+	title === siteConfig.title ? title : `${title} | ${siteConfig.name}`;
+const defaultStructuredData = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	name: siteConfig.name,
+	url: siteConfig.siteUrl,
+	description: siteConfig.description,
+	publisher: {
+		"@type": "Organization",
+		name: siteConfig.authorName,
+	},
+};
 ---
 
-<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="preload"
+			href="/fonts/geist/Geist-Variable.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<!-- HTML Meta Tags -->
-		<title>Rowerem z Sercem</title>
+		<title>{pageTitle}</title>
 		<meta
 			name="description"
 			content='"Rowerem z Sercem" - charytatywny rajd rowerowy połączony z transmisją na żywo'

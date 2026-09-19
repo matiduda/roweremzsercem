@@ -1,0 +1,98 @@
+---
+import { getCollection } from "astro:content";
+import PostCard from "@/components/PostCard.astro";
+import SiteFooter from "@/components/SiteFooter.astro";
+import SiteHeader from "@/components/SiteHeader.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { categoryDescriptions } from "@/config/categories";
+import { siteConfig } from "@/config/site";
+import {
+  categories,
+  categorySlug,
+  getPostsByCategory,
+  visiblePosts,
+  type Category,
+  type Post,
+} from "@/lib/posts";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import ScrollReveal from "@/components/ScrollReveal";
+import { title } from "framer-motion/client";
+import Layout from "@/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const allPosts = visiblePosts(await getCollection("posts"));
+
+  return categories
+    .filter((category) => getPostsByCategory(allPosts, category).length > 0)
+    .map((category) => ({
+      params: { category: categorySlug(category) },
+      props: { category, allPosts },
+    }));
+}
+
+interface Props {
+  category: Category;
+  allPosts: Post[];
+}
+
+const { category, allPosts } = Astro.props;
+const posts = getPostsByCategory(allPosts, category);
+const description = categoryDescriptions[category];
+---
+
+<Layout title={category}>
+  <Header />
+  <main id="content" class="max-w-6xl mx-auto p-4">
+    <header class="mt-10">
+      <ScrollReveal client:load delay={0}>
+        <p class="text-2xl md:text-4xl font-semibold text-gray-700">
+          {category}
+        </p>
+      </ScrollReveal>
+      <ScrollReveal client:load delay={0.1}>
+        <h1 class="my-3 md:my-4 text-slate-500">
+          {description}
+        </h1>
+      </ScrollReveal>
+
+      <ScrollReveal client:load delay={0.2}>
+        <div
+          class="add-dotted-spacer text-sm font-semibold text-slate-500 [--dot-border-color:var(--color-slate-500)]"
+        >
+          <span>
+            {posts.length}{posts.length === 1 ? " post" : " postów"}
+          </span>
+          <span> od najnowszego </span>
+        </div>
+      </ScrollReveal>
+    </header>
+
+    <ScrollReveal client:load delay={0.35}>
+      <hr class="h-px bg-gray-200 border-0 mt-6 mb-6" />
+    </ScrollReveal>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
+      {
+        posts.map((post, i) => (
+          <ScrollReveal client:load delay={0.4 + i * 0.05}>
+            <PostCard post={post} />
+          </ScrollReveal>
+        ))
+      }
+    </div>
+
+    <nav
+      class="mt-16 flex items-center justify-between gap-4 border-t border-slate-200 border-border pt-6 mb-8"
+      aria-label="Archive pagination"
+    >
+      <a
+        href="/blog"
+        class="text-slate-600 hover:text-slate-400 transition-colors"
+      >
+        <span class="">&larr;</span> Blog
+      </a>
+    </nav>
+  </main>
+  <Footer />
+</Layout>

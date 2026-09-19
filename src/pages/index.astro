@@ -9,6 +9,9 @@ import Team from "../components/Team.astro";
 import Sponsors from "../components/Sponsors.astro";
 import StreamEmbed from "../components/StreamEmbed.astro";
 import StreamInfo from "../components/StreamInfo.astro";
+import AboutUs from "../components/AboutUs.astro";
+import StreamFeatures from "../components/StreamFeatures.astro";
+import LatestPosts from "@/components/LatestPosts.astro";
 
 export const isStream = () => {
   // 1 maja 2026 - 9:00 (UTC)
@@ -16,14 +19,13 @@ export const isStream = () => {
 };
 ---
 
-<!-- To be deleted! Only for compatibility reasons as I sent this link to a potential partner and I don't know if they have opened it yet -->
 <Layout>
   <Header />
-  <main>
-    {isStream() ? <StreamEmbed /> : <Hero />}
-    {isStream() ? <StreamInfo /> : <Features />}
-    <Team />
-    <Sponsors />
-  </main>
-  <Footer />
+  <Hero />
+  <AboutUs />
+  <LatestPosts />
+  <!-- <Features /> -->
+  <!-- <Team /> -->
+  <Sponsors />
 </Layout>
+<Footer />
