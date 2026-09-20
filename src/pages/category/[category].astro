@@ -86,7 +86,7 @@ const dummyPostsToDisplay = posts.length < 9 ? 9 - posts.length : 0;
       {
         new Array(dummyPostsToDisplay).fill(0).map((dummyPost, i) => (
           <ScrollReveal client:load delay={0.4 + i * 0.05}>
-            <div class="min-h-16"></div>
+            <div class="min-h-32"></div>
           </ScrollReveal>
         ))
       }
