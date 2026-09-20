@@ -39,6 +39,9 @@ interface Props {
 const { category, allPosts } = Astro.props;
 const posts = getPostsByCategory(allPosts, category);
 const description = categoryDescriptions[category];
+
+const dummyPostsToDisplay = posts.length < 9 ? 9 - posts.length : 0;
+
 ---
 
 <Layout title={category}>
@@ -77,6 +80,13 @@ const description = categoryDescriptions[category];
         posts.map((post, i) => (
           <ScrollReveal client:load delay={0.4 + i * 0.05}>
             <PostCard post={post} />
+          </ScrollReveal>
+        ))
+      }
+      {
+        new Array(dummyPostsToDisplay).fill(0).map((dummyPost, i) => (
+          <ScrollReveal client:load delay={0.4 + i * 0.05}>
+            <div class="min-h-16"></div>
           </ScrollReveal>
         ))
       }
