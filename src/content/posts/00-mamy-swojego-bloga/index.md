@@ -6,7 +6,7 @@ date: 2026-09-20
 author: "Mateusz Duda"
 cover:
   src: "./cover.png"
-  alt: "Purple, white, and orange abstract light"
+  alt: "Logo Rowerem z Sercem na niebieskim tle wraz z podpisem 'Mamy własnego bloga!'"
 featured: false
 ---
 
