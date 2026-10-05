@@ -15,7 +15,12 @@ export const authorSlug = (author: string) =>
 
 export const categoryHref = (category: string) => `/category/${categorySlug(category)}/`;
 
-export const postSlug = (post: Post) => post.id.replace(/\/index$/, "");
+export const postSlug = (post: Post) => {
+  const id = post.id.replace(/\/index$/, "")
+  const parts = id.split("-");
+  // Drop leading digits like 0123-
+  return parts.slice(1).join("-");
+};
 
 export const postHref = (post: Post) => `/blog/${postSlug(post)}/`;
 
